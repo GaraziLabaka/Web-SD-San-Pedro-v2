@@ -1,3 +1,5 @@
+@import "colores";
+
 body {
     display: flex;
     flex-direction: column;
@@ -23,18 +25,20 @@ body {
 .paginacion-noticias {
     display: flex;
     justify-content: center;
+    align-content: center;
     margin: 20px;
 
     a {
         margin: 0 10px;
         padding: 10px 20px;
-        background-color: #007bff;
+        background-color: $azul-enfasis;
         color: white;
         text-decoration: none;
         border-radius: 5px;
 
         &:hover {
-            background-color: #0056b3;
+            background-color: $rojo-enfasis;
+            color: white;
         }
     }
 }

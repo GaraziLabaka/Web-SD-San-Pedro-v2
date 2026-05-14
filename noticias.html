@@ -12,6 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="javascript/supabase-conexion.js"></script>
       <script src="javascript/buscar-noticias.js" defer></script>
+      <script src="javascript/paginar-noticias.js" defer></script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -67,16 +68,14 @@
         <div id="contenedor-noticias" class="row"></div>     
     </div>
 
-    <nav aria-label="Page navigation example">
-  <ul class="pagination flex-center paginacion-noticias">
-    <li class="page-item">
+    <nav aria-label="Page navigation example paginacion-noticias">
+  <ul class="pagination justify-content-center paginacion-noticias">
+    <li class="page-item disabled">
       <a class="page-link" href="#" aria-label="Anterior">
         <span aria-hidden="true">&laquo;</span>
       </a>
     </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item active"><a class="page-link" href="#">1</a></li>
     <li class="page-item">
       <a class="page-link" href="#" aria-label="Siguiente">
         <span aria-hidden="true">&raquo;</span>

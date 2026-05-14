@@ -10,4 +10,29 @@ body {
 }
 .contenido-estatico h1 {
   text-align: center;
+}
+
+.contenido-estatico-noticias-titulo {
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.paginacion-noticias {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin: 20px;
+}
+.paginacion-noticias a {
+  margin: 0 10px;
+  padding: 10px 20px;
+  background-color: #1E417C;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+.paginacion-noticias a:hover {
+  background-color: #861618;
+  color: white;
 }/*# sourceMappingURL=contenido-estatico.css.map */
