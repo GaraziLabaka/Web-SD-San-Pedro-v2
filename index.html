@@ -23,23 +23,31 @@
 <body>
     <nav>
         <!-- Barra de navegación -->
+        <body class="d-flex flex-column min-vh-100">
+    <nav>
         <div class="navbar barra-navegacion">
             <a href="login.html"><img src="recursos/imagenes/escudo.png" alt="Logo" class="logo-navbar"></a>
-            <a class="nav-link" href="noticias.html">Noticias</a>
+            <a class="nav-link" id="noticias" data-i18n="nav-noticias" href="noticias.html">Noticias</a>
+            
             <div class="dropdown">
-                <a class="btn btn-secondary dropdown-toggle boton-desplegable" href="#" role="button" id="dropdownMenuLink"
-                    data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="btn btn-secondary dropdown-toggle boton-desplegable" href="#" role="button" id="nuestroClub"
+                    data-bs-toggle="dropdown" aria-expanded="false" data-i18n="nav-club">
                     Nuestro club
                 </a>
-
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <li><a class="dropdown-item" href="historia.html">Historia</a></li>
-                    <li><a class="dropdown-item" href="futbol-base.html">Fútbol base</a></li>
-                    <li><a class="dropdown-item" href="tienda.html">Tienda</a></li>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" data-i18n="nav-historia" href="historia.html">Historia</a></li>
+                    <li><a class="dropdown-item" data-i18n="nav-base" href="futbol-base.html">Fútbol base</a></li>
+                    <li><a class="dropdown-item" data-i18n="nav-tienda" href="tienda.html">Tienda</a></li>
                 </ul>
             </div>
-            <a class="nav-link" href="contacto.html">Contacto</a>
-        </div> 
+            <a class="nav-link" id="contacto" data-i18n="nav-contacto" href="contacto.html">Contacto</a>
+
+            <!-- Selector de idioma -->
+            <div class="ms-auto me-3">
+                <button class="btn boton-dark-outline" onclick="cambiarIdioma('eu')">Euskara</button>
+                <button class="btn boton-dark-outline" onclick="cambiarIdioma('es')">Español</button>
+            </div>
+        </div>
     </nav>
 
     <!-- Contenido principal -->

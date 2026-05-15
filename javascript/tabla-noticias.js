@@ -80,8 +80,8 @@ document.addEventListener("DOMContentLoaded", async function () {
         resizable: true,
         className: { table: 'table table-hover' },
         language: {
-            'search': { 'placeholder': 'Buscar noticia...' },
-            'noRecordsFound': 'No hay noticias en la base de datos'
+            'search': { 'placeholder': '🔍' },
+            'noRecordsFound': '...'
         }
     }).render(wrapper);
 

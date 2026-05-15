@@ -31,22 +31,30 @@
 <body>
     <nav>
         <!-- Barra de navegación -->
+        <body class="d-flex flex-column min-vh-100">
+    <nav>
         <div class="navbar barra-navegacion">
             <a href="login.html"><img src="recursos/imagenes/escudo.png" alt="Logo" class="logo-navbar"></a>
-            <a class="nav-link" href="noticias.html">Noticias</a>
+            <a class="nav-link" id="noticias" data-i18n="nav-noticias" href="noticias.html">Noticias</a>
+            
             <div class="dropdown">
-                <a class="btn btn-secondary dropdown-toggle boton-desplegable" href="#" role="button"
-                    id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="btn btn-secondary dropdown-toggle boton-desplegable" href="#" role="button" id="nuestroClub"
+                    data-bs-toggle="dropdown" aria-expanded="false" data-i18n="nav-club">
                     Nuestro club
                 </a>
-
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <li><a class="dropdown-item" href="historia.html">Historia</a></li>
-                    <li><a class="dropdown-item" href="futbol-base.html">Fútbol base</a></li>
-                    <li><a class="dropdown-item" href="tienda.html">Tienda</a></li>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" data-i18n="nav-historia" href="historia.html">Historia</a></li>
+                    <li><a class="dropdown-item" data-i18n="nav-base" href="futbol-base.html">Fútbol base</a></li>
+                    <li><a class="dropdown-item" data-i18n="nav-tienda" href="tienda.html">Tienda</a></li>
                 </ul>
             </div>
-            <a class="nav-link" href="contacto.html">Contacto</a>
+            <a class="nav-link" id="contacto" data-i18n="nav-contacto" href="contacto.html">Contacto</a>
+
+            <!-- Selector de idioma -->
+            <div class="ms-auto me-3">
+                <button class="btn boton-dark-outline" onclick="cambiarIdioma('eu')">Euskara</button>
+                <button class="btn boton-dark-outline" onclick="cambiarIdioma('es')">Español</button>
+            </div>
         </div>
     </nav>
 
@@ -74,14 +82,16 @@
         </p>
     </div>
 
-    <!-- Pie de página -->
+        <!-- Pie de página -->
     <div class="contenedor-footer container-fluid">
         <div class="footer">
+             <div class="d-flex-column">
+                <button class="btn btn-outline-light" onclick="cambiarIdioma('eu')">Euskara</button>
+                <button class="btn btn-outline-light" onclick="cambiarIdioma('es')">Español</button>
+            </div>
             <p><i class="fa-solid fa-map-marker-alt"></i> Antonio Trueba, 2, bajo izquierda - Sestao, Bizkaia</p>
             <p><i class="fa-solid fa-at"></i> sd.sanpedro@hotmail.com</p>
             <p><i class="fa-solid fa-phone"></i> 94 4951437 / 646807106</p>
-
-
             <a href="https://www.facebook.com/sdsanpedro" target="_blank"><i class="fa-brands fa-facebook"></i></a>
             <a href="https://twitter.com/sdsanpedro" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
             <a href="https://www.instagram.com/sdsanpedro/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
