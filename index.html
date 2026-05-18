@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+<!--No tocar esta parte-->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,61 +10,67 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/inicio.css">
-    <link rel="stylesheet" href="../css/idiomas.css">
     <script src="https://kit.fontawesome.com/fcc57e11ec.js" crossorigin="anonymous"></script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 <link rel="icon" href="/recursos/imagenes/escudo.ico" type="image/png">
+<script src="javascript/i18n-loader.js"></script>
 
-<title>SD San Pedro - Inicio</title>
+<title data-i18n="page-title-index">SD San Pedro - Inicio</title>
 </head>
 
-<body class="d-flex flex-column min-vh-100">
+<body>
+    <nav>
+        <!-- Barra de navegación -->
+        <body class="d-flex flex-column min-vh-100">
     <nav>
         <div class="navbar barra-navegacion">
             <a href="login.html"><img src="recursos/imagenes/escudo.png" alt="Logo" class="logo-navbar"></a>
-            <a class="nav-link" id="noticias" href="noticias.html">Noticias</a>
+            <a class="nav-link" id="noticias" data-i18n="nav-noticias" href="noticias.html">Noticias</a>
             
             <div class="dropdown">
                 <a class="btn btn-secondary dropdown-toggle boton-desplegable" href="#" role="button" id="nuestroClub"
-                    data-bs-toggle="dropdown" aria-expanded="false">
+                    data-bs-toggle="dropdown" aria-expanded="false" data-i18n="nav-club">
                     Nuestro club
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="historia.html">Historia</a></li>
-                    <li><a class="dropdown-item" href="futbol-base.html">Fútbol base</a></li>
-                    <li><a class="dropdown-item" href="tienda.html">Tienda</a></li>
+                    <li><a class="dropdown-item" data-i18n="nav-historia" href="historia.html">Historia</a></li>
+                    <li><a class="dropdown-item" data-i18n="nav-base" href="futbol-base.html">Fútbol base</a></li>
+                    <li><a class="dropdown-item" data-i18n="nav-tienda" href="tienda.html">Tienda</a></li>
                 </ul>
             </div>
-            <a class="nav-link" id="contacto" href="contacto.html">Contacto</a>
+            <a class="nav-link" id="contacto" data-i18n="nav-contacto" href="contacto.html">Contacto</a>
 
-            <a href="#" onclick="cambiarIdioma('eu')"><img class="bandera" src="recursos/imagenes/ikurrina.png" alt="euskara"></a>
-            <a href="#" onclick="cambiarIdioma('es')"><img class="bandera" src="recursos/imagenes/espana.png" alt="español"></a>
+            <a href="#" onclick="cambiarIdioma('eu')" title="Euskara"><img class="bandera" src="recursos/imagenes/ikurrina.png" alt="euskara" style="height: 30px; cursor: pointer;"></a>
+            <a href="#" onclick="cambiarIdioma('es')" title="Español"><img class="bandera" src="recursos/imagenes/espana.png" alt="español" style="height: 30px; cursor: pointer;"></a>
         </div>
     </nav>
 
-    <div class="contenido-inicio">
-        <h3 class="display-3 texto-titulos">¡Bienvenidos! - #NoHayTregua</h3>
-        <img src="recursos/imagenes/escudo.png" alt="Logo" class="img-fluid logo-principal">
-    </div>
+    <!-- Contenido principal -->
+        <div class="contenido-inicio">
+            <h3 class="display-3 texto-titulos">Ongi etorri! - #EzDagoEtenik</h3>
+            <h3 class="display-3 texto-titulos">¡Bienvenidos! - #NoHayTregua</h3>
+            <img src="recursos/imagenes/escudo.png" alt="Logo" class="img-fluid logo-principal">
+        </div>
 
-    <div class="contenedor-footer container-fluid">
-        <div class="footer">
-            <a href="#" onclick="cambiarIdioma('eu')"><img class="bandera" src="recursos/imagenes/ikurrina.png" alt="euskara"></a>
-            <a href="#" onclick="cambiarIdioma('es')"><img class="bandera" src="recursos/imagenes/espana.png" alt="español"></a>
-
-            <p><i class="fa-solid fa-map-marker-alt"></i> Antonio Trueba, 2, bajo izquierda - Sestao, Bizkaia</p>
-            <p><i class="fa-solid fa-at"></i> sd.sanpedro@hotmail.com</p>
-            <p><i class="fa-solid fa-phone"></i> 94 4951437 / 646807106</p>
+        <!-- Pie de página -->
+        <div class="contenedor-footer container-fluid">
+            <div class="footer">
+                <a href="#" onclick="cambiarIdioma('eu')" title="Euskara"><img class="bandera" src="recursos/imagenes/ikurrina.png" alt="euskara" style="height: 30px; cursor: pointer;"></a>
+                <a href="#" onclick="cambiarIdioma('es')" title="Español"><img class="bandera" src="recursos/imagenes/espana.png" alt="español" style="height: 30px; cursor: pointer;"></a>
+                <br><br>
+                <p><i class="fa-solid fa-map-marker-alt"></i> <span data-i18n="footer-address">Antonio Trueba, 2, bajo izquierda - Sestao, Bizkaia</span></p>
+                <p><i class="fa-solid fa-at"></i> <span data-i18n="footer-email">sd.sanpedro@hotmail.com</span></p>
+                <p><i class="fa-solid fa-phone"></i> <span data-i18n="footer-phone">94 4951437 / 646807106</span></p>
             
-            <a href="https://www.facebook.com/sdsanpedro" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-            <a href="https://twitter.com/sdsanpedro" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="https://www.instagram.com/sdsanpedro/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-            <br>
+
+                <a href="https://www.facebook.com/sdsanpedro" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://twitter.com/sdsanpedro" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://www.instagram.com/sdsanpedro/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
         </div>
     </div>
-    <script src="idioma.js"></script>
 </body>
+
 </html>
