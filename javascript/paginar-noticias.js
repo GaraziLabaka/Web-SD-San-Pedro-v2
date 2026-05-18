@@ -43,7 +43,7 @@ function renderizarNoticias(noticias) {
     contenedor.innerHTML = ""; // Limpiamos lo anterior
 
     if (noticias.length === 0) {
-        contenedor.innerHTML = "<p>No hay más noticias.</p>";
+        contenedor.innerHTML = "<p>Ez dago berririk / No hay más noticias.</p>";
         return;
     }
 

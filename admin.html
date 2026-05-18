@@ -34,6 +34,7 @@
     <link rel="stylesheet" href="../css/inicio.css">
     <link rel="stylesheet" href="../css/admin.css">
     <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/idiomas.css">
     <script src="https://kit.fontawesome.com/fcc57e11ec.js" crossorigin="anonymous"></script>
 
     <!-- Trix Editor -->
@@ -51,16 +52,19 @@
     <link href="https://cdn.jsdelivr.net/npm/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
     <script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
     <script src="javascript/tabla-noticias.js"></script>
+    
+    
+    <script src="javascript/traductor.js"></script>
 
     <link rel="icon" href="/recursos/imagenes/escudo.ico" type="image/png">
-    <title data-i18n="tag-title">SD San Pedro - Zona de administración</title>
+    <title data-i18n="tag-title-admin">SD San Pedro - Zona de administración</title>
 </head>
 
 <body class="d-flex flex-column min-vh-100">
     <nav>
         <div class="navbar barra-navegacion">
-            <a href="login.html"><img src="recursos/imagenes/escudo.png" alt="Logo" class="logo-navbar"></a>
-            <a class="nav-link" id="noticias" data-i18n="nav-noticias" href="noticias.html">Noticias</a>
+            <a href="login.html"><img src="/recursos/imagenes/escudo.png" alt="Logo" class="logo-navbar"></a>
+            <a class="nav-link" id="noticias-es" data-i18n="nav-noticias" href="noticias.html">Noticias</a>
             
             <div class="dropdown">
                 <a class="btn btn-secondary dropdown-toggle boton-desplegable" href="#" role="button" id="nuestroClub"
@@ -74,21 +78,25 @@
                 </ul>
             </div>
             <a class="nav-link" id="contacto" data-i18n="nav-contacto" href="contacto.html">Contacto</a>
+       
+            <a href="#" onclick="cambiarIdioma('eu')"><img class="bandera" src="recursos/imagenes/ikurrina.png" alt="euskara"></a>
+            <a href="#" onclick="cambiarIdioma('es')"><img class="bandera" src="recursos/imagenes/espana.png" alt="español"></a>
+       
         </div>
     </nav>
 
     <div class="mb-3 contenido-zona-admin">
         <div class="editor-texto">
-            <input type="text" class="form-control" id="titulo-noticia" data-i18n="ph-titulo" placeholder="Título de la noticia">
+            <input type="text" class="form-control" id="titulo-noticia" data-i18n-ph="ph-titulo" placeholder="Título de la noticia">
             <br>
-            <input type="date" class="form-control" data-i18n="ph-fecha" id="fecha-noticia">
+            <input type="date" class="form-control" id="fecha-noticia">
             <br>
-            <input type="file" class="form-control" data-i18n="ph-imagen" id="imagen-noticia">
+            <input type="file" class="form-control" id="imagen-noticia">
             <br>
             <div class="mb-3">
                 <input id="trix-editor-noticia-input" type="hidden" name="content">
                 <trix-editor input="trix-editor-noticia-input" id="contenidoNoticia"
-                    data-i18n="ph-contenido" placeholder="Contenido de la noticia"></trix-editor>
+                    data-i18n-ph="ph-contenido" placeholder="Contenido de la noticia"></trix-editor>
             </div>
             <div class="mb-3">
                 <button class="btn boton-admin" id="publicar-noticia" type="button" data-i18n="btn-publicar">Publicar noticia</button>
@@ -108,15 +116,15 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <input type="text" class="form-control" id="titulo-noticia-editar" data-i18n="ph-titulo" placeholder="Título de la noticia">
+                    <input type="text" class="form-control" id="titulo-noticia-editar" data-i18n-ph="ph-titulo" placeholder="Título de la noticia">
                     <br>
-                    <input type="date" class="form-control" data-i18n="ph-fecha" id="fecha-noticia-editar">
+                    <input type="date" class="form-control" id="fecha-noticia-editar">
                     <br>
-                    <input type="file" class="form-control" data-i18n="ph-imagen" id="imagen-noticia-editar">
+                    <input type="file" class="form-control" id="imagen-noticia-editar">
                     <br>
                     <div class="mb-3">
                         <input id="trix-modal-input" type="hidden" name="content">
-                        <trix-editor input="trix-modal-input" data-i18n="ph-contenido" placeholder="Contenido de la noticia"></trix-editor>
+                        <trix-editor input="trix-modal-input" data-i18n-ph="ph-contenido" placeholder="Contenido de la noticia"></trix-editor>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -129,7 +137,8 @@
     <!-- Pie de página -->
     <div class="contenedor-footer container-fluid">
         <div class="footer">
-             
+            <a href="#" onclick="cambiarIdioma('eu')"><img class="bandera" src="recursos/imagenes/ikurrina.png" alt="euskara"></a>
+            <a href="#" onclick="cambiarIdioma('es')"><img class="bandera" src="recursos/imagenes/espana.png" alt="español"></a>
             <p><i class="fa-solid fa-map-marker-alt"></i> Antonio Trueba, 2, bajo izquierda - Sestao, Bizkaia</p>
             <p><i class="fa-solid fa-at"></i> sd.sanpedro@hotmail.com</p>
             <p><i class="fa-solid fa-phone"></i> 94 4951437 / 646807106</p>

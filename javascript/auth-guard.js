@@ -1,9 +1,12 @@
 async function verificarAcceso() {
     console.log("Verificando sesión...");
 
+const esEuskera = window.location.pathname.includes('/eus/');
+
+
     if (!window.supabaseClient) {
         console.error("Supabase no está configurado.");
-        window.location.href = "login.html";
+        window.location.replace("login.html");
         return;
     }
 
@@ -11,7 +14,7 @@ async function verificarAcceso() {
 
     if (error || !session) {
         console.warn("Acceso denegado. Redirigiendo al login...");
-        window.location.href = "login.html";
+        window.location.replace("login.html");
     } else {
         console.log("Acceso concedido para:", session.user.email);
         

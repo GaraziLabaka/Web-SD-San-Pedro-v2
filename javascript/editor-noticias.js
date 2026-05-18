@@ -8,7 +8,7 @@ async function publicarNoticia() {
 
 
     if (!titulo || !fecha || !contenido || !imagen) {
-        alert("Por favor, completa todos los campos antes de publicar la noticia.");
+        alert("Mesedez, bete hutsune guztiak berria argitaratu aurretik. / Por favor, completa todos los campos antes de publicar la noticia.");
         return;
     }
 
@@ -26,11 +26,11 @@ async function publicarNoticia() {
 
         if (error) throw error;
 
-        alert("¡Noticia publicada con éxito!");
+        alert("Berria argitaratu egin da! / ¡Noticia publicada con éxito!");
         location.reload(); 
 
     } catch (error) {
-        alert("Error de Supabase: " + error.message);
+        alert("Supabaseren akatsa / Error de Supabase: " + error.message);
     }
 }
 

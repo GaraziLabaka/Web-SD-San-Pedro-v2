@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const password = document.getElementById("password").value;
 
         if (!window.supabaseClient) {
-            alert("Error: No se pudo conectar con el servidor de seguridad.");
+            alert("Akatsa: Ezin izan dugu segurtasun zerbitzariarekin konektatu / Error: No se pudo conectar con el servidor de seguridad.");
             return;
         }
 
@@ -18,14 +18,14 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
             if (error) {
-                alert("Error de acceso: " + error.message);
+                alert("Akatsa sarreran / Error de acceso: " + error.message);
             } else {
-                console.log("Sesión iniciada con éxito");
+                console.log("Saioa hasten... / Sesión iniciada con éxito");
                 window.location.href = "admin.html"; 
             }
         } catch (err) {
             console.error(err);
-            alert("Error crítico al intentar conectar.");
+            alert(" Akatsa konexioan / Error crítico al intentar conectar.");
         }
     });
 });

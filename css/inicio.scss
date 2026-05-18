@@ -142,7 +142,7 @@ justify-content: flex-start;
     .footer {
         display: flex;
         background: linear-gradient(to right, $azul-enfasis, $rojo-enfasis);
-        justify-content: center;
+        justify-content: space-around;
         align-items: center;
         color: $texto-enlaces-botones;
         flex-wrap: wrap;

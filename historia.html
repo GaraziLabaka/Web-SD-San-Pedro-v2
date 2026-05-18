@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-<!--No tocar esta parte-->
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,15 +10,14 @@
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/inicio.css">
     <link rel="stylesheet" href="../css/contenido-estatico.css">
+    <link rel="stylesheet" href="../css/idiomas.css">
     <script src="https://kit.fontawesome.com/fcc57e11ec.js" crossorigin="anonymous"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Teko:wght@300..700&display=swap" rel="stylesheet">
 
@@ -28,67 +25,54 @@
     <title>SD San Pedro - Historia</title>
 </head>
 
-<body>
-    <nav>
-        <!-- Barra de navegación -->
-        <body class="d-flex flex-column min-vh-100">
+<body class="d-flex flex-column min-vh-100">
     <nav>
         <div class="navbar barra-navegacion">
             <a href="login.html"><img src="recursos/imagenes/escudo.png" alt="Logo" class="logo-navbar"></a>
-            <a class="nav-link" id="noticias" data-i18n="nav-noticias" href="noticias.html">Noticias</a>
+            <a class="nav-link" id="noticias" href="noticias.html">Noticias</a>
             
             <div class="dropdown">
                 <a class="btn btn-secondary dropdown-toggle boton-desplegable" href="#" role="button" id="nuestroClub"
-                    data-bs-toggle="dropdown" aria-expanded="false" data-i18n="nav-club">
+                    data-bs-toggle="dropdown" aria-expanded="false">
                     Nuestro club
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" data-i18n="nav-historia" href="historia.html">Historia</a></li>
-                    <li><a class="dropdown-item" data-i18n="nav-base" href="futbol-base.html">Fútbol base</a></li>
-                    <li><a class="dropdown-item" data-i18n="nav-tienda" href="tienda.html">Tienda</a></li>
+                    <li><a class="dropdown-item" href="historia.html">Historia</a></li>
+                    <li><a class="dropdown-item" href="futbol-base.html">Fútbol base</a></li>
+                    <li><a class="dropdown-item" href="tienda.html">Tienda</a></li>
                 </ul>
             </div>
-            <a class="nav-link" id="contacto" data-i18n="nav-contacto" href="contacto.html">Contacto</a>
+            <a class="nav-link" id="contacto" href="contacto.html">Contacto</a>
 
+            <a href="#" onclick="cambiarIdioma('eu')"><img class="bandera" src="recursos/imagenes/ikurrina.png" alt="euskara"></a>
+            <a href="#" onclick="cambiarIdioma('es')"><img class="bandera" src="recursos/imagenes/espana.png" alt="español"></a>
         </div>
     </nav>
 
     <div class="contenido-estatico">
         <h1>Historia del club</h1>
         <br>
-        <p>La historia de nuestro club echa a andar en 1923. Un grupo de amigos se juntaba a jugar al fútbol en la plaza de San
-            Pedro, y decidieron montar la Asociación Deportiva San Pedro. Como presidente eligieron a Julián Medina
-            López. Eligieron como colores del club los del ganador del Campeonato de España de ese mismo año, los del
-            Fútbol Club Barcelona.</p>
-
-            <p>En los primeros años nuestro club estuvo sin campo de juego ni entrenamiento fijo ya que les estuvo vedado, hasta
-            que en 1969 obtuvo permiso para jugar en el campo municipal de Las Llanas, campo que curiosamente se construyó
-            en 1923 para el Sestao Sport (el actual Sestao River Club).
-            Actualmente, ambos equipos compartimos campo.</p>
-
-            <p>Aún así, aquellos años fueron difíciles: en una ocasión los propios directivos del San Pedro tuvieron que
-            jugar para evitar una multa, ya que solo contaban, en esa época, con cinco jugadores. El equipamiento no estaba hecho a
-            medida, había las botas que había en ese entonces, incluso los propios jugadores construyeron un campo de
-            fútbol en Galindo, en el año 1976 aproximadamente. Aun así, no era un campo perfecto, ya que se inundaba
-            cada dos por tres y había que achicar agua a martillo y cincel.</p>
-
-            <p>En la temporada 95-96 el equipo ascendió por primera vez a tercera división. Actualmente los dos equipos
-            principales del club juegan en la división de honor de Bizkaia y en tercera división respectivamente.
-        </p>
+        <p>La historia de nuestro club echa a andar en 1923. Un grupo de amigos se juntaba a jugar al fútbol en la plaza de San Pedro, y decidieron montar la Asociación Deportiva San Pedro. Como presidente eligieron a Julián Medina López. Eligieron como colores del club los del ganador del Campeonato de España de ese mismo año, los del Fútbol Club Barcelona.</p> 
+        <p>En los primeros años nuestro club estuvo sin campo de juego ni entrenamiento fijo ya que les estuvo vedado, hasta que en 1969 obtuvo permiso para jugar en el campo municipal de Las Llanas, campo que curiosamente se construyó en 1923 para el Sestao Sport (el actual Sestao River Club). Actualmente, ambos equipos compartimos campo.</p> 
+        <p>Aún así, aquellos años fueron difíciles: en una ocasión los propios directivos del San Pedro tuvieron que jugar para evitar una multa, ya que solo contaban, en esa época, con cinco jugadores. El equipamiento no estaba hecho a medida, había las botas que había en ese entonces, incluso los propios jugadores construyeron un campo de fútbol en Galindo, en el año 1976 aproximadamente. Aun así, no era un campo perfecto, ya que se inundaba cada dos por tres y había que achicar agua a martillo y cincel.</p> 
+        <p>En la temporada 95-96 el equipo ascendió por primera vez a tercera división. Actualmente los dos equipos principales del club juegan en la división de honor de Bizkaia y en tercera división respectivamente.</p> 
     </div>
 
-        <!-- Pie de página -->
     <div class="contenedor-footer container-fluid">
         <div class="footer">
-             
+            <a href="#" onclick="cambiarIdioma('eu')"><img class="bandera" src="recursos/imagenes/ikurrina.png" alt="euskara"></a>
+            <a href="#" onclick="cambiarIdioma('es')"><img class="bandera" src="recursos/imagenes/espana.png" alt="español"></a>
+
             <p><i class="fa-solid fa-map-marker-alt"></i> Antonio Trueba, 2, bajo izquierda - Sestao, Bizkaia</p>
             <p><i class="fa-solid fa-at"></i> sd.sanpedro@hotmail.com</p>
             <p><i class="fa-solid fa-phone"></i> 94 4951437 / 646807106</p>
+            
             <a href="https://www.facebook.com/sdsanpedro" target="_blank"><i class="fa-brands fa-facebook"></i></a>
             <a href="https://twitter.com/sdsanpedro" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
             <a href="https://www.instagram.com/sdsanpedro/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <br>
         </div>
     </div>
+    <script src="idioma.js"></script>
 </body>
-
 </html>

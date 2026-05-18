@@ -32,10 +32,10 @@ document.addEventListener("DOMContentLoaded", async function () {
         columns: [
             { name: "ID", hidden: true },
             {
-                name: "Imagen",
+                name: "Irudia / Imagen",
                 formatter: (cell) => {
                     if (!cell || cell === 'Sin imagen' || cell.includes('fakepath')) {
-                        return gridjs.html(`<span style="color:red; font-size:10px;">URL Inválida</span>`);
+                        return gridjs.html(`<span style="color:red; font-size:10px;">URL ez baliogarria / URL inválida</span>`);
                     }
 
                     return gridjs.html(`
@@ -48,10 +48,10 @@ document.addEventListener("DOMContentLoaded", async function () {
         `);
                 }
             },
-            "Título",
-            "Fecha",
+            "Izenburua / Título",
+            "Data / Fecha",
             {
-                name: "Contenido",
+                name: "Edukia / Contenido",
                 formatter: (cell) => {
                     return gridjs.html(`<div style="max-height: 50px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 200px;">${cell}</div>`);
                 }
@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         resizable: true,
         className: { table: 'table table-hover' },
         language: {
-            'search': { 'placeholder': '🔍' },
+            'search': { 'placeholder': 'Berria bilatu / Buscar noticia' },
             'noRecordsFound': '...'
         }
     }).render(wrapper);
@@ -101,8 +101,8 @@ document.addEventListener("DOMContentLoaded", async function () {
         contenido = inputOculto.value;
     }
 
-    if (!fotoArchivo) return alert("Selecciona una imagen primero");
-    if (!titulo) return alert("El título es obligatorio");
+    if (!fotoArchivo) return alert("Aukeratu argazki bat / Selecciona una imagen primero");
+    if (!titulo) return alert("Izenburua derrigorrezkoa da / El título es obligatorio");
 
     try {
         const nombreArchivo = `${Date.now()}_${fotoArchivo.name.replace(/\s+/g, '_')}`;
@@ -135,18 +135,18 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         if (insertError) throw insertError;
 
-        alert("¡Noticia publicada con éxito!");
+        alert("Berria argitaratu da! / ¡Noticia publicada con éxito!");
         location.reload();
 
     } catch (err) {
         console.error("ERROR AL PUBLICAR:", err);
-        alert("Error al publicar noticia: " + err.message);
+        alert("Arazo bat egon da berria argitaratzerakoan / Error al publicar noticia: " + err.message);
     }
 });
 
 window.borrarNoticia = async (id) => {
 
-    if (!confirm(`¿Confirma que desea eliminar la noticia con ID "${id}"?`)) return;
+    if (!confirm(`${id}-dun berria ezabatu nahi al duzu? / ¿Confirma que desea eliminar la noticia con ID "${id}"?`)) return;
 
     try {
         const { error } = await window.supabaseClient
@@ -156,12 +156,12 @@ window.borrarNoticia = async (id) => {
 
         if (error) throw error;
 
-        alert("Noticia eliminada con éxito");
+        alert("Berriaren ezabaketa attakastatsua / Noticia eliminada con éxito");
         location.reload();
 
     } catch (err) {
         console.error("Error al eliminar:", err);
-        alert("Error al eliminar noticia: " + err.message);
+        alert("Arazo bat egon da berria eguneratzekoan / Error al eliminar noticia: " + err.message);
     }
 };
 
@@ -206,7 +206,7 @@ window.editarNoticia = async (id) => {
             const fotoInput = document.getElementById("imagen-noticia-editar");
             const nuevaFotoArchivo = fotoInput.files[0];
 
-            if (!nuevoTitulo) return alert("El título es obligatorio");
+            if (!nuevoTitulo) return alert("Izenburua derrigorrezkoa da / El título es obligatorio");
 
             try {
                 let datosActualizados = {
@@ -239,15 +239,15 @@ window.editarNoticia = async (id) => {
 
                 if (updateError) throw updateError;
 
-                alert("Noticia actualizada con éxito");
+                alert("Eguneraketa arrakastatsua! / Noticia actualizada con éxito");
                 location.reload();
 
             } catch (err) {
-                alert("Error al guardar cambios: " + err.message);
+                alert("Arazo bat egon da aldaketak gordetzerakoan / Error al guardar cambios: " + err.message);
             }
         };
     } catch (err) {
         console.error("Error al cargar noticia:", err);
-        alert("Error al cargar noticia: " + err.message);
+        alert(" Arazo bat egon da berria kargatzerakoan / Error al cargar noticia: " + err.message);
     }
 }});

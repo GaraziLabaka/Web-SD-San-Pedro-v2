@@ -1,90 +1,86 @@
-<!--No tocar esta parte-->
-
+<!DOCTYPE html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/inicio.css">
     <link rel="stylesheet" href="../css/login.css">
     <link rel="stylesheet" href="../css/formularios.css">
+    <link rel="stylesheet" href="../css/idiomas.css">
     <script src="https://kit.fontawesome.com/fcc57e11ec.js" crossorigin="anonymous"></script>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
-        rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2 family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="javascript/supabase-conexion.js"></script>
-    <script src="javascript/login.js"></script>
-    <link rel="icon" href="/recursos/imagenes/escudo.ico" type="image/png">
-
-    <title>SD San Pedro - Inicio de sesión</title>
+    <script src="javascript/supabase-conexion.js"></script> 
+    <script src="javascript/login.js"></script> 
+    <link rel="icon" href="/recursos/imagenes/escudo.ico" type="image/png"> 
+    <title>SD San Pedro - Inicio de sesión</title> 
 </head>
 
-<body class="d-flex flex-column min-vh-100">
+<body class="d-flex flex-column min-vh-100"> 
     <nav>
         <div class="navbar barra-navegacion">
             <a href="login.html"><img src="recursos/imagenes/escudo.png" alt="Logo" class="logo-navbar"></a>
-            <a class="nav-link" id="noticias" data-i18n="nav-noticias" href="noticias.html">Noticias</a>
+            <a class="nav-link" id="noticias" href="noticias.html">Noticias</a>
             
             <div class="dropdown">
                 <a class="btn btn-secondary dropdown-toggle boton-desplegable" href="#" role="button" id="nuestroClub"
-                    data-bs-toggle="dropdown" aria-expanded="false" data-i18n="nav-club">
+                    data-bs-toggle="dropdown" aria-expanded="false">
                     Nuestro club
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" data-i18n="nav-historia" href="historia.html">Historia</a></li>
-                    <li><a class="dropdown-item" data-i18n="nav-base" href="futbol-base.html">Fútbol base</a></li>
-                    <li><a class="dropdown-item" data-i18n="nav-tienda" href="tienda.html">Tienda</a></li>
+                    <li><a class="dropdown-item" href="historia.html">Historia</a></li>
+                    <li><a class="dropdown-item" href="futbol-base.html">Fútbol base</a></li>
+                    <li><a class="dropdown-item" href="tienda.html">Tienda</a></li>
                 </ul>
             </div>
-            <a class="nav-link" id="contacto" data-i18n="nav-contacto" href="contacto.html">Contacto</a>
+            <a class="nav-link" id="contacto" href="contacto.html">Contacto</a>
 
+            <a href="#" onclick="cambiarIdioma('eu')"><img class="bandera" src="recursos/imagenes/ikurrina.png" alt="euskara"></a>
+            <a href="#" onclick="cambiarIdioma('es')"><img class="bandera" src="recursos/imagenes/espana.png" alt="español"></a>
         </div>
     </nav>
 
-    <!-- Formulario para autenticarse como administrador -->
-    <div class="contenido-admin">
-        <form class="form-horizontal">
-  <div class="form-group">
-    <div class="col-sm-10">
-      <input type="email" class="form-control" id="usuario" placeholder="Introduce tu nombre de usuario" size="46" maxlength="50">
-    </div>
-  </div>
-  <br>
-  <div class="form-group">
-    <div class="col-sm-10">
-      <input type="password" class="form-control" id="password" placeholder="Introduce tu contraseña" size="46" maxlength="50">
-    </div>
-  </div>
-  <br>
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <button type="button" class="btn btn-default boton-admin" aria-setsize="50">Acceder a la zona de administración</button>
-    </div>
-  </div>
-</form>
+    <div class="contenido-admin"> 
+        <form class="form-horizontal"> 
+            <div class="form-group"> 
+                <div class="col-sm-10"> 
+                    <input type="email" class="form-control" id="usuario" placeholder="Introduce tu nombre de usuario" size="46" maxlength="50"> 
+                </div> 
+            </div> 
+            <br> 
+            <div class="form-group"> 
+                <div class="col-sm-10"> 
+                    <input type="password" class="form-control" id="password" placeholder="Introduce tu contraseña" size="46" maxlength="50"> 
+                </div> 
+            </div> 
+            <br> 
+            <div class="form-group"> 
+                <div class="col-sm-offset-2 col-sm-10"> 
+                    <button type="button" class="btn btn-default boton-admin" aria-setsize="50">Acceder a la zona de administración</button> 
+                </div> 
+            </div> 
+        </form> 
+    </div> 
 
-    </div>
-
-
-
-        <!-- Pie de página -->
     <div class="contenedor-footer container-fluid">
         <div class="footer">
+            <a href="#" onclick="cambiarIdioma('eu')"><img class="bandera" src="recursos/imagenes/ikurrina.png" alt="euskara"></a>
+            <a href="#" onclick="cambiarIdioma('es')"><img class="bandera" src="recursos/imagenes/espana.png" alt="español"></a>
+
             <p><i class="fa-solid fa-map-marker-alt"></i> Antonio Trueba, 2, bajo izquierda - Sestao, Bizkaia</p>
             <p><i class="fa-solid fa-at"></i> sd.sanpedro@hotmail.com</p>
             <p><i class="fa-solid fa-phone"></i> 94 4951437 / 646807106</p>
+            
             <a href="https://www.facebook.com/sdsanpedro" target="_blank"><i class="fa-brands fa-facebook"></i></a>
             <a href="https://twitter.com/sdsanpedro" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
             <a href="https://www.instagram.com/sdsanpedro/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <br>
         </div>
     </div>
-</body>
-
+    <script src="idioma.js"></script>
+</body> 
+</html>

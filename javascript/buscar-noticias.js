@@ -1,4 +1,4 @@
-// 1. Movemos la variable del timeout fuera para que sea global al archivo
+
 let timeoutBuscador = null;
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 buscarNoticias();
             }, 300); 
         });
-        buscador.dataset.hasListener = "true"; // Marcamos que ya tiene el evento
+        buscador.dataset.hasListener = "true"; 
     }
 
     buscarNoticias();
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let htmlFinal = "";
 
         if (!data || data.length === 0) {
-            htmlFinal = '<p class="text-center w-100 mt-5">No se encontraron noticias.</p>';
+            htmlFinal = '<p class="text-center w-100 mt-5">Ez dago berririk / No se encontraron noticias.</p>';
         } else {
             htmlFinal = data.map(noticia => `
                 <div class="col-12 col-sm-6 col-md-4 mb-4 d-flex">
