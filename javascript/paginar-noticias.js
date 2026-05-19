@@ -60,7 +60,7 @@ function renderizarNoticias(noticias) {
                     </div>
                 </div>
                 <button class="btn boton-admin m-3" onclick="location.href='detalle-noticia.html?id=${noticia.id}'">
-                    Leer más
+                    Berria irakurri / Leer más
                 </button>
             </div>
         </div>

@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                 }
             },
             {
-                name: 'Acciones',
+                name: 'Ekintzak / Acciones',
                 formatter: (cell, row) => {
                     const id = row.cells[0].data;
                     const titulo = row ? row.cells[1]?.data || "Sin-Titulo" : "Sin-Titulo";
@@ -165,9 +165,10 @@ window.borrarNoticia = async (id) => {
     }
 };
 
+
 window.editarNoticia = async (id) => {
     try {
-        // obtener los datos de la noticia
+        // 1. Obtener los datos de Supabase
         const { data, error } = await window.supabaseClient
             .from('Noticia')
             .select('*')
@@ -176,32 +177,47 @@ window.editarNoticia = async (id) => {
 
         if (error) throw error;
 
-        // rellenar campos de texto y fecha
-        document.getElementById("titulo-noticia-editar").value = data.titulo;
-        document.getElementById("fecha-noticia-editar").value = data.fecha;
+        // 2. Rellenar campos normales
+        document.getElementById("titulo-noticia-editar").value = data.titulo || "";
+        document.getElementById("fecha-noticia-editar").value = data.fecha || "";
 
-        // rellenar Trix Editor
-        const inputOcultoModal = document.getElementById("trix-modal");
-        const editorElement = document.querySelector("trix-editor[input='trix-modal']");
+        const contenidoNoticia = data.contenido || "";
 
-        if (inputOcultoModal) inputOcultoModal.value = data.contenido || "";
+        // 3. RE-CREACIÓN DINÁMICA DE TRIX (A prueba de errores de renderizado)
+        const contenedor = document.getElementById("contenedor-trix-editar");
+        
+        if (contenedor) {
+            // Vaciamos el contenedor por completo para eliminar cualquier rastro del editor viejo/vacío
+            contenedor.innerHTML = "";
 
-        if (editorElement && editorElement.editor) {
-            editorElement.editor.loadHTML(data.contenido || "");
-        } else {
-            // Si el editor no se ha inicializado (primera vez que se abre la modal)
-            document.addEventListener("trix-initialize", () => {
-                const el = document.querySelector("trix-editor[input='trix-modal']");
-                if (el && el.editor) el.editor.loadHTML(data.contenido || "");
-            }, { once: true });
+            // Creamos el input oculto nuevo y le asignamos el valor de Supabase
+            const nuevoInput = document.createElement("input");
+            nuevoInput.id = "trix-noticia-editar";
+            nuevoInput.type = "hidden";
+            nuevoInput.name = "contenido_editar";
+            nuevoInput.value = contenidoNoticia;
+
+            // Creamos el elemento del editor Trix desde cero
+            const nuevoEditor = document.createElement("trix-editor");
+            nuevoEditor.setAttribute("input", "trix-noticia-editar");
+            nuevoEditor.className = "editor-modal-noticia";
+            
+            // Truco maestro: Le inyectamos el HTML directamente en su atributo de nacimiento
+            nuevoEditor.setAttribute("value", contenidoNoticia);
+
+            // Los metemos al DOM. Al renderizarse juntos desde cero, Trix se ve obligado 
+            // a leer el 'value' del input de forma nativa e inmediata durante su arranque.
+            contenedor.appendChild(nuevoInput);
+            contenedor.appendChild(nuevoEditor);
         }
 
-        // lógica para guardar cambios
+        // 4. Lógica para guardar cambios
         document.getElementById("guardar-cambios").onclick = async function () {
             const nuevoTitulo = document.getElementById("titulo-noticia-editar").value;
             const nuevaFecha = document.getElementById("fecha-noticia-editar").value;
             
-            const nuevoContenido = document.getElementById("trix-modal").value;
+            // Leemos del input recién creado
+            const nuevoContenido = document.getElementById("trix-noticia-editar").value;
             
             const fotoInput = document.getElementById("imagen-noticia-editar");
             const nuevaFotoArchivo = fotoInput.files[0];
@@ -215,7 +231,6 @@ window.editarNoticia = async (id) => {
                     contenido: nuevoContenido
                 };
 
-                // Subida de foto si existe una nueva
                 if (nuevaFotoArchivo) {
                     const nombreArchivo = `${Date.now()}_${nuevaFotoArchivo.name.replace(/\s+/g, '_')}`;
                     const { error: storageError } = await window.supabaseClient.storage
@@ -231,7 +246,6 @@ window.editarNoticia = async (id) => {
                     datosActualizados.imagen = urlData.publicUrl;
                 }
 
-                // Actualizar en Supabase
                 const { error: updateError } = await window.supabaseClient
                     .from('Noticia')
                     .update(datosActualizados)
@@ -248,6 +262,6 @@ window.editarNoticia = async (id) => {
         };
     } catch (err) {
         console.error("Error al cargar noticia:", err);
-        alert(" Arazo bat egon da berria kargatzerakoan / Error al cargar noticia: " + err.message);
+        alert("Arazo bat egon da berria kargatzerakoan / Error al cargar noticia: " + err.message);
     }
 }});

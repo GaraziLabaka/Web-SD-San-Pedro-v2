@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 ${noticia.contenido}
                             </div>
                             <button class="btn boton-admin w-100 mt-auto" onclick="location.href='detalle-noticia.html?id=${noticia.id}'">
-                                Leer más
+                                Berria irakurri / Leer más
                             </button>
                         </div>
                     </div>

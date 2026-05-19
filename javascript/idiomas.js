@@ -5,7 +5,7 @@ let traducciones = {};
 // Cargar las traducciones
 async function cargarIdiomas() {
     try {
-        const response = await fetch('javascript/idiomas.json');
+        const response = await fetch('idiomas.json');
         return await response.json();
     } catch (error) {
         console.error('Error cargando traducciones:', error);

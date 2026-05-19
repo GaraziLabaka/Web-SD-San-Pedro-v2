@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <!--No tocar esta parte-->
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,92 +12,126 @@
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="javascript/supabase-conexion.js"></script>
-      <script src="javascript/buscar-noticias.js" defer></script>
-      <script src="javascript/paginar-noticias.js" defer></script>
+    <script src="javascript/buscar-noticias.js" defer></script>
+    <script src="javascript/paginar-noticias.js" defer></script>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Teko:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Teko:wght@300..700&display=swap"
+        rel="stylesheet">
 
-    <link rel="stylesheet" href="../css/inicio.css">
-    <link rel="stylesheet" href="../css/login.css">
-    <link rel="stylesheet" href="../css/contenido-estatico.css">
-    <link rel="stylesheet" href="../css/formularios.css">
+    <link rel="stylesheet" href="css/inicio.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/contenido-estatico.css">
+    <link rel="stylesheet" href="css/formularios.css">
     <script src="https://kit.fontawesome.com/fcc57e11ec.js" crossorigin="anonymous"></script>
-<link rel="icon" href="/recursos/imagenes/escudo.ico" type="image/png">
+    <link rel="icon" href="/recursos/imagenes/escudo.ico" type="image/png">
 
 
-<title>SD San Pedro - Noticias</title>
+    <title data-i18n="page-title-noticias">SD San Pedro - Noticias</title>
+    <link rel="stylesheet" href="css/idiomas.css">
 </head>
 
 <body>
     <nav>
         <!-- Barra de navegación -->
-       <body class="d-flex flex-column min-vh-100">
-    <nav>
-        <div class="navbar barra-navegacion">
-            <a href="login.html"><img src="recursos/imagenes/escudo.png" alt="Logo" class="logo-navbar"></a>
-            <a class="nav-link" id="noticias" data-i18n="nav-noticias" href="noticias.html">Noticias</a>
-            
-            <div class="dropdown">
-                <a class="btn btn-secondary dropdown-toggle boton-desplegable" href="#" role="button" id="nuestroClub"
-                    data-bs-toggle="dropdown" aria-expanded="false" data-i18n="nav-club">
-                    Nuestro club
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" data-i18n="nav-historia" href="historia.html">Historia</a></li>
-                    <li><a class="dropdown-item" data-i18n="nav-base" href="futbol-base.html">Fútbol base</a></li>
-                    <li><a class="dropdown-item" data-i18n="nav-tienda" href="tienda.html">Tienda</a></li>
-                </ul>
+
+        <body class="d-flex flex-column min-vh-100">
+            <nav>
+                <div class="navbar barra-navegacion">
+                    <a href="login.html"><img src="recursos/imagenes/escudo.png" alt="Logo" class="logo-navbar"></a>
+                    <a class="nav-link" id="noticias" data-i18n="nav-noticias" href="noticias.html">Noticias</a>
+
+                    <div class="dropdown">
+                        <a class="btn btn-secondary dropdown-toggle boton-desplegable" href="#" role="button"
+                            id="nuestroClub" data-bs-toggle="dropdown" aria-expanded="false" data-i18n="nav-club">
+                            Nuestro club
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" data-i18n="nav-historia" href="historia.html">Historia</a></li>
+                            <li><a class="dropdown-item" data-i18n="nav-base" href="futbol-base.html">Fútbol base</a>
+                            </li>
+                            <li><a class="dropdown-item" data-i18n="nav-tienda" href="tienda.html">Tienda</a></li>
+                        </ul>
+
+                    </div>
+                    <a class="nav-link" id="contacto" data-i18n="nav-contacto" href="contacto.html">Contacto</a>
+                    <a href="#" onclick="cambiarIdioma('eu')" title="Euskara">
+                        <img class="bandera" src="recursos/imagenes/ikurrina.png" alt="euskara"
+                            style="height: 30px; cursor: pointer;">
+                    </a>
+                    <a href="#" onclick="cambiarIdioma('es')" title="Español">
+                        <img class="bandera" src="recursos/imagenes/espana.png" alt="español"
+                            style="height: 30px; cursor: pointer;">
+                    </a>
+
+
+                </div>
+            </nav>
+
+            <!--Noticias-->
+
+            <div class="container mt-4">
+                <h1 class="contenido-estatico-noticias-titulo" data-i18n="noticias-title">Noticias del club</h1>
+                <br>
+
+                <div class="buscador-noticias">
+                    <input type="text" id="buscador" class="form-control" data-i18n="noticias-search-placeholder"
+                        placeholder="Buscar noticias por título">
+                </div>
+                <br>
+                <div id="contenedor-noticias" class="row"></div>
             </div>
-            <a class="nav-link" id="contacto" data-i18n="nav-contacto" href="contacto.html">Contacto</a>
 
-            
-        </div>
-    </nav>
+            <nav aria-label="Page navigation example paginacion-noticias">
+                <ul class="pagination justify-content-center paginacion-noticias">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" aria-label="Anterior">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Siguiente">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- Pie de página -->
+            <div class="contenedor-footer container-fluid">
+                <div class="footer">
+                    <a href="#" onclick="cambiarIdioma('eu')" title="Euskara">
+                        <img class="bandera" src="recursos/imagenes/ikurrina.png" alt="euskara"
+                            style="height: 30px; cursor: pointer;">
+                    </a>
+                    <a href="#" onclick="cambiarIdioma('es')" title="Español">
+                        <img class="bandera" src="recursos/imagenes/espana.png" alt="español"
+                            style="height: 30px; cursor: pointer;">
+                    </a>
 
-    <!--Noticias-->
+                    <p><i class="fa-solid fa-map-marker-alt"></i> <span data-i18n="footer-address">Antonio Trueba, 2,
+                            bajo izquierda - Sestao, Bizkaia</span></p>
+                    <p><i class="fa-solid fa-at"></i> <span data-i18n="footer-email">sd.sanpedro@hotmail.com</span></p>
+                    <p><i class="fa-solid fa-phone"></i> <span data-i18n="footer-phone">94 4951437 / 646807106</span>
+                    </p>
+                    <a href="https://www.facebook.com/sdsanpedro" target="_blank"><i
+                            class="fa-brands fa-facebook"></i></a>
+                    <a href="https://twitter.com/sdsanpedro" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://www.instagram.com/sdsanpedro/" target="_blank"><i
+                            class="fa-brands fa-instagram"></i></a>
 
-    <div class="container mt-4">
-        <h1 class="contenido-estatico-noticias-titulo">Noticias del club</h1>
-        <br>
 
-        <div class="buscador-noticias">
-            <input type="text" id="buscador" class="form-control"placeholder="Buscar noticias por título">
-        </div>
-        <br>
-        <div id="contenedor-noticias" class="row"></div>     
-    </div>
+                </div>
+            </div>
+            <script src="javascript/idiomas.js"></script>
+        </body>
 
-    <nav aria-label="Page navigation example paginacion-noticias">
-  <ul class="pagination justify-content-center paginacion-noticias">
-    <li class="page-item disabled">
-      <a class="page-link" href="#" aria-label="Anterior">
-        <span aria-hidden="true">&laquo;</span>
-      </a>
-    </li>
-    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Siguiente">
-        <span aria-hidden="true">&raquo;</span>
-      </a>
-    </li>
-  </ul>
-</nav>
-        <!-- Pie de página -->
-    <div class="contenedor-footer container-fluid">
-        <div class="footer">
-            <p><i class="fa-solid fa-map-marker-alt"></i> Antonio Trueba, 2, bajo izquierda - Sestao, Bizkaia</p>
-            <p><i class="fa-solid fa-at"></i> sd.sanpedro@hotmail.com</p>
-            <p><i class="fa-solid fa-phone"></i> 94 4951437 / 646807106</p>
-            <a href="https://www.facebook.com/sdsanpedro" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-            <a href="https://twitter.com/sdsanpedro" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="https://www.instagram.com/sdsanpedro/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-        </div>
-    </div>
-</body>
 </html>
