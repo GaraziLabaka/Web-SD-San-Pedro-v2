@@ -168,7 +168,7 @@ window.borrarNoticia = async (id) => {
 
 window.editarNoticia = async (id) => {
     try {
-        // 1. Obtener los datos de Supabase
+        // obtener los datos de Supabase
         const { data, error } = await window.supabaseClient
             .from('Noticia')
             .select('*')
@@ -177,46 +177,45 @@ window.editarNoticia = async (id) => {
 
         if (error) throw error;
 
-        // 2. Rellenar campos normales
+        // rellenar campos normales
         document.getElementById("titulo-noticia-editar").value = data.titulo || "";
         document.getElementById("fecha-noticia-editar").value = data.fecha || "";
 
         const contenidoNoticia = data.contenido || "";
 
-        // 3. RE-CREACIÓN DINÁMICA DE TRIX (A prueba de errores de renderizado)
+        // recrear trix dinámicamente
         const contenedor = document.getElementById("contenedor-trix-editar");
         
         if (contenedor) {
-            // Vaciamos el contenedor por completo para eliminar cualquier rastro del editor viejo/vacío
+            // Vaciar el contenedor por completo para eliminar cualquier rastro del editor viejo/vacío
             contenedor.innerHTML = "";
 
-            // Creamos el input oculto nuevo y le asignamos el valor de Supabase
+            // Crear el input oculto nuevo y le asignamos el valor de Supabase
             const nuevoInput = document.createElement("input");
             nuevoInput.id = "trix-noticia-editar";
             nuevoInput.type = "hidden";
             nuevoInput.name = "contenido_editar";
             nuevoInput.value = contenidoNoticia;
 
-            // Creamos el elemento del editor Trix desde cero
+            // Crear el elemento del editor Trix desde cero
             const nuevoEditor = document.createElement("trix-editor");
             nuevoEditor.setAttribute("input", "trix-noticia-editar");
             nuevoEditor.className = "editor-modal-noticia";
             
-            // Truco maestro: Le inyectamos el HTML directamente en su atributo de nacimiento
+            // inyectar html
             nuevoEditor.setAttribute("value", contenidoNoticia);
 
-            // Los metemos al DOM. Al renderizarse juntos desde cero, Trix se ve obligado 
-            // a leer el 'value' del input de forma nativa e inmediata durante su arranque.
+            // cargar en el DOM
             contenedor.appendChild(nuevoInput);
             contenedor.appendChild(nuevoEditor);
         }
 
-        // 4. Lógica para guardar cambios
+        // lógica para guardar cambios
         document.getElementById("guardar-cambios").onclick = async function () {
             const nuevoTitulo = document.getElementById("titulo-noticia-editar").value;
             const nuevaFecha = document.getElementById("fecha-noticia-editar").value;
             
-            // Leemos del input recién creado
+            // leer del input recién creado
             const nuevoContenido = document.getElementById("trix-noticia-editar").value;
             
             const fotoInput = document.getElementById("imagen-noticia-editar");
