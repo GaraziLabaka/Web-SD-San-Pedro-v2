@@ -1,5 +1,5 @@
 // configuración global
-const noticiasPorPagina = 3;
+const noticiasPorPagina = 5;
 let paginaActual = 1;
 let totalPaginas = 0;
 
