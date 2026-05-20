@@ -1,4 +1,4 @@
-// 1. Configuración global
+// configuración global
 const noticiasPorPagina = 3;
 let paginaActual = 1;
 let totalPaginas = 0;
@@ -66,7 +66,7 @@ function renderizarNoticias(noticias) {
         </div>
 `})
     }
-// función que dibuja los botones 
+// función que renderiza los botones 
 async function actualizarPaginacion() {
     const paginacion = document.querySelector(".paginacion-noticias");
     

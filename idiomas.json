@@ -20,8 +20,7 @@
     "page-title-tienda": "SD San Pedro - Tienda",
     "page-title-admin": "SD San Pedro - Zona de administración",
     
-    "index-welcome-eu": "Ongi etorri! - #EzDagoEtenik",
-    "index-welcome-es": "¡Bienvenidos! - #NoHayTregua",
+    "index-welcome": "¡Bienvenidos! - #NoHayTregua",
     
     "login-user-placeholder": "Introduce tu nombre de usuario",
     "login-password-placeholder": "Introduce tu contraseña",
@@ -120,8 +119,7 @@
     "page-title-tienda": "SD San Pedro - Denda",
     "page-title-admin": "SD San Pedro - Administrazio gunea",
     
-    "index-welcome-eu": "Ongi etorri! - #EzDagoEtenik",
-    "index-welcome-es": "¡Ongi etorri! - #EzDagoEtenik",
+      "index-welcome": "Ongi etorri! - #EzDagoEtenik",
     
     "login-user-placeholder": "Sartu zure erabiltzaile-izena",
     "login-password-placeholder": "Sartu zure pasahitza",

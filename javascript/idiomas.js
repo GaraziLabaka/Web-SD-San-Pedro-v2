@@ -1,5 +1,6 @@
 // Cargar idioma guardado o por defecto es español
 let idiomaActual = localStorage.getItem('idioma_preferido') || 'es';
+// almacena la traducción elegida
 let traducciones = {};
 
 // Cargar las traducciones
